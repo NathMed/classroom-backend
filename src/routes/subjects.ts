@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
         // at least 1 page or more
         const currentPage = Math.max(1, +page);
-        const limitPerPage = Math.max(1, +limit)
+        const limitPerPage = Math.min(100, Math.max(1, +limit))
 
         // how many records to skip to get to the next page
         const offset = (currentPage - 1) * limitPerPage;
